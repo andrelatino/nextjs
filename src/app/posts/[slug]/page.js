@@ -1,5 +1,11 @@
 import { posts } from '../../../data/posts'
 
+export function generateStaticParams() {
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
 export default function Post({ params }) {
   const post = posts.find(p => p.slug === params.slug)
   
